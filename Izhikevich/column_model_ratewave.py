@@ -45,7 +45,7 @@ def main(w_ex, epoch):
             for post_index in range(len(pops)):
                 post_pop = pops[post_index]
                 # synapses.append(bp.dyn.synapses.GABAa(pre_pop, post_pop, bp.conn.FixedProb(connection_matrix[pre_index,post_index]), g_max=-8.*(w_ex+w_ex_std*np.random.normal())))
-                synapses.append(GABAa(pre_pop, post_pop, bp.conn.FixedProb(connection_matrix[pre_index,post_index]), g_max=(w_ex+w_ex_std*np.random.normal())))
+                synapses.append(bp.dyn.synapses.GABAa(pre_pop, post_pop, bp.conn.FixedProb(connection_matrix[pre_index,post_index]), g_max=(w_ex+w_ex_std*np.random.normal())))
 
         pass
 
