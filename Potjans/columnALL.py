@@ -166,7 +166,7 @@ bp.visualize.raster_plot(runner.mon.ts, spikeall[:,::-1], xlim = (100,biotime),y
 plt.yticks(cumn_layer,['L6i','L6e','L5i','L5e','L4i','L4e','L2/3i','L2/3e'])
 
 plt.style.use("bmh")
-plt.savefig("/home/liugangqiang/brainpy2/202206190100{}spike.png".format(input_type))
+plt.savefig("202206190100{}spike.png".format(input_type))
 
 plt.cla()
 
@@ -188,4 +188,4 @@ plt.bar(name_list[::-1], rate)
 plt.ylabel("rate",fontsize=14)
 plt.xlabel("Time(ms)",fontsize=14)
 plt.style.use("bmh")
-plt.savefig("/home/liugangqiang/brainpy2/202206190100{}rate.png".format(input_type))
+plt.savefig("202206190100{}rate.png".format(input_type))
