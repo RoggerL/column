@@ -265,16 +265,20 @@ class GABAa(BaseExpSyn):
         self.g += post_sps*(1-g_minus)
         self.post.input += -self.g_max * self.g*(self.post.V - self.E)       
 
-# pre = Izhmodel()
-# # post = bp.neurons.LIF(1, V_rest=-60., V_reset=-60., V_th=-40.)
-# post = Izhmodel()
-# syn = AMPA(pre, post, conn=bp.conn.One2One(),g_max= 100.)
+# # pre = bp.neurons.LIF(1,V_rest=-50,V_reset=-50,tau_ref = 20)
+# pre =bp.dyn.neurons.HH(1)
+# # pre = Izhmodel()
+# # post = bp.neurons.LIF(1,V_rest=-50,V_reset=-50,tau_ref = 20)
+# post = bp.dyn.neurons.HH(1)
+# # post.V.value = bm.array([-20.])
+# # post = Izhmodel()
+# syn = AMPA(pre, post, conn=bp.conn.One2One(),g_max= 0.)
 # net = bp.dyn.Network(pre=pre, post=post,syn=syn)
 # runner = bp.dyn.DSRunner(
 #     net, 
 #     monitors=['pre.V','post.V'],
 #     dt = 0.01,
-#     inputs = [('pre.input',10.),('post.input',10.)]
+#     inputs = [('pre.input',4.7249),('post.input',0.)]
 # )
 
 # runner.run(200)
@@ -285,7 +289,7 @@ class GABAa(BaseExpSyn):
 # plt.ylabel('V (mV)')
 
 # plt.show()
-# plt.savefig("test202209280001.png")
+# plt.savefig("test202210080001.png")
  
 
   

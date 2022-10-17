@@ -62,32 +62,32 @@ neuron_inhibitory = ["p23(RS)","ss4(RS)","p4(RS)","p5p6(RS)","TI","TRN"]
 #          2/3e   2/3i   4e    4i    5e    5i    6e     6i    Th
 layers_pars = [
     [dict(name = "nb1",neuron_type = "nb1(LS)",type = 0)],
-    [dict(name = "p2/3 L2/3",neuron_type = "p23(RS)",type = 0),
+    [dict(name = "p2/3",neuron_type = "p23(RS)",type = 0),
      dict(name = "p2/3 L1",neuron_type = "p23(RS)",type = 1)],
     [dict(name = "b2/3",neuron_type = "b(FS)" ,type = 0)],
     [dict(name = "nb2/3",neuron_type = "nb(LTS)",type = 0)],
     [dict(name = "ss4(L4)",neuron_type = "ss4(RS)",type = 0)],
     [dict(name = "ss4(L2/3)",neuron_type = "ss4(RS)",type = 0)],
-    [dict(name = "p4 L4",neuron_type = "p4(RS)",type = 0),
+    [dict(name = "p4",neuron_type = "p4(RS)",type = 0),
      dict(name = "p4 L2/3",neuron_type = "p4(RS)",type = 1),
      dict(name = "p4 L1",neuron_type = "p4(RS)",type = 2)], 
     [dict(name = "b4",neuron_type = "b(FS)",type = 0)],
     [dict(name = "nb4",neuron_type = "nb(LTS)",type = 0)],
-    [dict(name = "p5(L2/3) L5",neuron_type = "p5p6(RS)",type = 0),
+    [dict(name = "p5(L2/3)",neuron_type = "p5p6(RS)",type = 0),
      dict(name = "p5(L2/3) L4",neuron_type = "p5p6(RS)",type = 1),
      dict(name = "p5(L2/3) L2/3",neuron_type = "p5p6(RS)",type = 2), 
      dict(name = "p5(L2/3) L1",neuron_type = "p5p6(RS)",type = 3)],
-    [dict(name = "p5(L5/6) L5",neuron_type = "p5p6(RS)",type = 0),
+    [dict(name = "p5(L5/6)",neuron_type = "p5p6(RS)",type = 0),
      dict(name = "p5(L5/6) L4",neuron_type = "p5p6(RS)",type = 1),
      dict(name = "p5(L5/6) L2/3",neuron_type = "p5p6(RS)",type = 2), 
      dict(name = "p5(L5/6) L1",neuron_type = "p5p6(RS)",type = 3)],    
     [dict(name = "b5",neuron_type = "b(FS)",type = 0)], 
     [dict(name = "nb5",neuron_type = "nb(LTS)",type = 0)], 
-    [dict(name = "p6(L4) L6",neuron_type = "p5p6(RS)",type = 0),
+    [dict(name = "p6(L4)",neuron_type = "p5p6(RS)",type = 0),
      dict(name = "p6(L4) L5",neuron_type = "p5p6(RS)",type = 1),
      dict(name = "p6(L4) L4",neuron_type = "p5p6(RS)",type = 2),
      dict(name = "p6(L4) L2/3",neuron_type = "p5p6(RS)",type = 3)],
-    [dict(name = "p6(L5/6) L6",neuron_type = "p5p6(RS)",type = 0),
+    [dict(name = "p6(L5/6)",neuron_type = "p5p6(RS)",type = 0),
      dict(name = "p6(L5/6) L5",neuron_type = "p5p6(RS)",type = 1), 
      dict(name = "p6(L5/6) L4",neuron_type = "p5p6(RS)",type = 2),
      dict(name = "p6(L5/6) L2/3",neuron_type = "p5p6(RS)",type = 3),
@@ -158,7 +158,8 @@ connection_percent = np.vstack(connection_list)
 connection_matrix = connection_percent*0.01
 (x,y) = connection_matrix.shape
 
-neuron_part_number = [int(nn*0.01) for nn in neuron_number]
+neuron_part_number = [int(nn*0.001) for nn in neuron_number]
+cortex_part_number = neuron_part_number[:17]
 name_list = [cortex_soma_par["name"] for cortex_soma_par in cortex_soma_pars]
 cortex_name_list = name_list[:17]
 # print(len(cortex_number))
@@ -167,4 +168,7 @@ cortex_name_list = name_list[:17]
 #         if connection_matrix[i,j]>1:
 #             print("wrong")
 
-print(connection_matrix)
+# print(connection_matrix)
+
+# print([i*0.0001 for i in cortex_number])
+
